@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 
 import com.png.interview.databinding.FragmentHeroesDetailBinding
 import com.png.interview.extensions.onMain
@@ -17,6 +18,8 @@ import javax.inject.Inject
 class HeroDetailFragment : InjectedFragment() {
 
     @Inject lateinit var viewBinder: HeroDetailFragmentViewBinder
+
+    private val args: HeroDetailFragmentArgs by navArgs()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -34,7 +37,7 @@ class HeroDetailFragment : InjectedFragment() {
 
         val viewModel = getViewModel<HeroDetailFragmentViewModel>()
         viewLifecycleScope.launch(Dispatchers.IO) {
-            viewModel.getHeroeDetails().let {
+            viewModel.getHeroeDetails(args.heroName).let {
                 onMain {
                     viewBinder.bind(it)
                 }

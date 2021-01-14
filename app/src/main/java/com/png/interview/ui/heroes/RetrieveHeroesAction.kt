@@ -1,6 +1,7 @@
 package com.png.interview.ui.heroes
 
 import com.png.interview.api.HotsApi
+import com.png.interview.api.common_model.action.operations.mapResult
 import com.png.interview.api.models.heroes.Hero
 import com.png.interview.api.common_model.action.operations.onErrorReturn
 import com.png.interview.api.common_model.action.toActionResult
@@ -19,4 +20,27 @@ class RetrieveHeroesAction
             .onErrorReturn {
                 emptyList()
             }.result
+
+    suspend fun getHero(name: String): Hero =
+        hotsApi.getHero(name).toActionResult(resultConversion = {
+            it
+        })
+            .onErrorReturn {
+                Hero(
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                )
+            }
+            .result
 }

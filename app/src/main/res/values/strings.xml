@@ -11,5 +11,5 @@
 	<string name="please_try_again">Please try again</string>
 	<string name="ok">OK</string>
 	<string name="about_fragment">About Fragment</string>
-	<string name="about_content">Insert some text about the app eventually</string>
+	<string name="about_content">This App is used as a tool to see information on Heroes of the Storm, the best Multiplayer Online Battle Arena game ever made. The game was developed by Blizzard Entertainment, and has gone into maintenance mode recently.</string>
 </resources>

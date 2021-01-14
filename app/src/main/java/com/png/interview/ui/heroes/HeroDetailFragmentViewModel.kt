@@ -4,8 +4,6 @@ import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
 class HeroDetailFragmentViewModel
-@Inject constructor() : ViewModel() {
-
-    // TODO return hero details
-    suspend fun getHeroeDetails() = null
+@Inject constructor(private val heroesAction: RetrieveHeroesAction) : ViewModel() {
+    suspend fun getHeroeDetails(name: String) = heroesAction.getHero(name)
 }

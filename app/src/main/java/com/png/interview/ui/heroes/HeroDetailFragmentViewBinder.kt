@@ -15,12 +15,13 @@ import javax.inject.Inject
 class HeroDetailFragmentViewBinder
 @Inject constructor(
     private val activity: AppCompatActivity
-) {
+) : BaseObservable() {
     private var hero: Hero? = null
 
     fun bind(item: Hero?) {
         if (item != null) {
             this.hero = item
+            notifyChange()
         }
     }
 
